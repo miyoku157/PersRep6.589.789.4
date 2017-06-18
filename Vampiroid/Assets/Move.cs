@@ -14,7 +14,7 @@ public class Move : MonoBehaviour {
 
     private bool isRunning = false;
 
-    private Vector3 target;
+    private Vector2 target;
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class Move : MonoBehaviour {
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, Speed * 2 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, Speed * 10 * Time.deltaTime);
         }
     }
     public void MoveSimple(LeanFinger finger)
