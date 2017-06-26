@@ -449,8 +449,11 @@ namespace Lean.Touch
 					{
 						if (finger.SwipeScreenDelta.magnitude * ScalingFactor < SwipeThreshold)
 						{
-							finger.Tap       = true;
-							finger.TapCount += 1;
+                            if (finger.TapCount < 2)
+                            {
+                                finger.Tap = true;
+                                finger.TapCount += 1;
+                            }
 						}
 						else
 						{
@@ -549,6 +552,7 @@ namespace Lean.Touch
 		// Add a finger based on index, or return the existing one
 		private void AddFinger(int index, Vector2 screenPosition)
 		{
+            
 			var finger = FindFinger(index);
 
 			// No finger found?

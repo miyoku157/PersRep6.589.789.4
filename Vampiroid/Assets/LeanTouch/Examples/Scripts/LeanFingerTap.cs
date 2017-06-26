@@ -38,6 +38,7 @@ namespace Lean.Touch
 		private void FingerTap(LeanFinger finger)
 		{
 			// Ignore?
+
 			if (IgnoreIfOverGui == true && finger.IsOverGui == true)
 			{
 				return;
@@ -58,7 +59,7 @@ namespace Lean.Touch
 				return;
 			}
 
-			// Call event
+            // Call event
 			OnFingerTap.Invoke(finger);
 		}
 	}
